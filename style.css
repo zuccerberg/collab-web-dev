@@ -14,3 +14,14 @@ nav ul {
   nav li{
     display: inline-block;
 }
+.spurdo {
+	position: absolute;
+	width: 200px;
+	bottom: 80px;
+	right: 80px;
+	animation: spurdo 1s infinite linear;
+}
+@keyframes spurdo {
+	0% {transform:rotate(0deg)}
+	100% {transform: rotate(360deg)}
+}
