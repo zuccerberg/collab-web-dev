@@ -1,0 +1,1 @@
+alert('hello, this is new 4chan enjoy your stay');

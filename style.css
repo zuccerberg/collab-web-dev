@@ -1,0 +1,16 @@
+body {
+  font-family: sans-serif;
+}
+
+header h1 {
+  text-align: center;
+}
+
+nav ul {
+  padding-left: 0;
+  text-align: center;
+}
+
+  nav li{
+    display: inline-block;
+}
