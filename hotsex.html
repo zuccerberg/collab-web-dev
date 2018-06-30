@@ -83,7 +83,7 @@
         <div class="row d-flex justify-content-center">
 
 		
-		            <div class="col-md-5" style="background-color:white; border:1px solid black; padding:0; overflow:hidden;">
+		            <div class="col-md-6" style="background-color:white; border:1px solid black; padding:0; overflow:hidden;">
               <div id="sex-chat">
 
 
@@ -260,6 +260,11 @@ const imrcv = function() {
   const rcv = document.getElementById('im2');
   rcv.play();
 }
+
+window.setInterval(function() {
+  var elem = document.getElementById('chat-data');
+  elem.scrollTop = elem.scrollHeight;
+}, 500);
 
 
     </script>
