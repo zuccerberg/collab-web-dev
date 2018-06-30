@@ -6,36 +6,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="ass.css">
-    <script>
-var context;
-var x=100;
-var y=200;
-var dx=5;
-var dy=5;
 
-function init()
-{
-  context= myCanvas.getContext('2d');
-  setInterval(draw,10);
-}
-
-function draw()
-{
-  context.clearRect(0,0, 300,300);
-  context.beginPath();
-  context.fillStyle="#0000ff";
-  // Draws a circle of radius 20 at the coordinates 100,100 on the canvas
-  context.arc(x,y,20,0,Math.PI*2,true);
-  context.closePath();
-  context.fill();
-  // Boundary Logic
-if( x<0 || x>300) dx=-dx; 
-if( y<0 || y>300) dy=-dy; 
-x+=dx; 
-y+=dy;
-}
-
-</script>
     </head>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bee.css">
@@ -57,7 +28,7 @@ y+=dy;
             <li><a href="http://www.reddit.com">circlejerk</a></li>
             <li><a href="http://www.reddit.com/r/furry_irl">furfags</a></li>
             <li><a href="http://tumblr.com/">hehehe LIBREL OWNED</a></li>
-            <li><a href="http://4chan.org/">god</a></li>
+            <li class="browser-text"><a href="http://4chan.org/">god</a></li>
 		<li><a href="http://twitter.com/gyngras">no-lifer</a></li>
 		<li><a href="https://www.reddit.com/r/hzone/"><b>h</b></a></li>
 		<img src="4soft.png" class="spurdo">
@@ -69,8 +40,7 @@ y+=dy;
 <br>
         <div class="row d-flex justify-content-center">
             <div class="col-lg-8" style="background-color:white; border:1px solid black; overflow:hidden;">
-  <canvas id="myCanvas" width="300" height="300" >
-  </canvas>
+		    <p class="spurdo><h1 class="browser-text">We only use Gentoo in this dimension, peasent.<h1></p>
     <img src="spurdo.png" class="spurdo">
             </div>
             <br>
