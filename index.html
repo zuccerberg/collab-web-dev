@@ -315,16 +315,17 @@
             privacyPolicy.position.x = -1000
             privacyPolicy.position.z = 500;
             privacyPolicy.rotation.y = Math.PI * (0.25);
+            objects.privacyPolicy = privacyPolicy;
             scene.add(privacyPolicy);
 
             // Character ==================
             var characterElem = document.createElement("img");
-            characterElem.src = "chan.png";
+            characterElem.src = "character.png";
             var character = new THREE.CSS3DObject(characterElem);
             objects.character = character;
             scene.add(character);
         }
-
+        
         function animate() {
             requestAnimationFrame(animate);
             // Africa
@@ -363,8 +364,6 @@
             objects.character.rotation.x = camera.rotation.x;
             objects.character.rotation.y = camera.rotation.y;
             objects.character.rotation.z = camera.rotation.z;
-
-
 
             controls.update();
             renderer.render(scene, camera);
