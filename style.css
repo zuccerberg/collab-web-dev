@@ -1,0 +1,54 @@
+body {
+  font-family: sans-serif;
+}
+
+header h1 {
+  text-align: center;
+}
+
+body {
+  margin:0;
+  background-color:black;
+  background-image:url('http://i0.kym-cdn.com/photos/images/newsfeed/000/328/161/576.gif');
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    top: 0;
+    width: 100%;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    margin-top:15px;
+    text-decoration: none;
+}
+
+nav li a:hover:not(.active) {
+    background-color: #111;
+}
+
+nav .active {
+    background-color: #4CAF50;
+}
+
+.spurdo {
+  height:100px;
+  width:100px;
+	animation: spurdo 1s infinite linear;
+}
+@keyframes spurdo {
+	0% {transform:rotate(0deg)}
+	100% {transform: rotate(360deg)}
+}

@@ -1,0 +1,21 @@
+.bee-link {
+  display: block;
+  position: fixed;
+  bottom: 80px;
+  height: 80px;
+  width: 80px;
+  animation: 5s linear 0s infinite normal none running left-to-right;
+}
+.bee-image {
+  display: block;
+  height: 100%;
+  animation: 1s ease-in-out 0s infinite alternate none running up-and-down;
+}
+@keyframes left-to-right {
+  from { transform: translateX(-200%); }
+  to   { transform: translateX(100vw); }
+}
+@keyframes up-and-down {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(100%); }
+}
