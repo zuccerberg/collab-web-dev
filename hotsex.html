@@ -232,7 +232,7 @@ const addChatItem = function addChat() {
 const chatResponse1 = function() {
   const box = document.querySelector('.message-pane');
   let responseNum = Math.floor(Math.random() * 6 + 1)
-  const resArr = ['Hey sexy, what\'s up ;)', 'asl?', ''you live in anomymous proxy, too?', 'i have a fetish for the state of ohio ;3', 'daddy, give me your cummies~', 'mmm..soo horny right now ;)', 'u r pretty hot... ' ]
+  const resArr = ['Hey sexy, what\'s up ;)', 'asl?', 'you live in anomymous proxy, too?', 'i have a fetish for the state of ohio ;3', 'daddy, give me your cummies~', 'mmm..soo horny right now ;)', 'u r pretty hot... ' ]
   let response = resArr[responseNum];
   const newHTML = (`<li><div class="c-recieve">${response}</div></li>`);
   setTimeout(() => {
