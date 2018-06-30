@@ -202,6 +202,14 @@
             document.getElementById("renderer").appendChild(renderer.domElement);
 
             controls = new THREE.OrbitControls(camera, renderer.domElement);
+            
+            controls.keys.UP = 87;
+            controls.keys.BOTTOM = 83;
+            controls.keys.LEFT = 65;
+            controls.keys.RIGHT = 68;
+            controls.keyPanSpeed = 20;
+
+
         }
 
         function createObjects() {
@@ -219,19 +227,18 @@
                     musicplayer.play();
                 }
             });
-            
+
             var africa = new THREE.CSS3DObject(elemAfrica);
             africa.position.x = 1000;
             africa.position.z = 500;
             africa.rotation.y = Math.PI / 2;
-            
+
             objects.africa = africa;
             scene.add(africa);
         }
 
         function animate() {
             requestAnimationFrame(animate);
-
 
             objects.africa.rotation.x += 0.001
             objects.africa.rotation.y += 0.001;
