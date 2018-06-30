@@ -324,6 +324,7 @@
             scene.add(character);
         }
         
+        var hoverCounter = 0;
         function animate() {
             requestAnimationFrame(animate);
             // Africa
@@ -358,6 +359,9 @@
             objects.character.position.x = controls.target.x;
             objects.character.position.y = controls.target.y - 500;
             objects.character.position.z = controls.target.z;
+            objects.character.position.y += Math.sin(hoverCounter/30) * 30;
+            hoverCounter++;
+            hoverCounter %= 30*Math.PI*2;
 
             objects.character.rotation.x = camera.rotation.x;
             objects.character.rotation.y = camera.rotation.y;
