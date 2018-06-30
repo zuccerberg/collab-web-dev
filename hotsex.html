@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="bee.css">
     <link rel="shortcut icon" href="/4soft.ico" type="image/x-icon">
     <link rel="icon" href="/4soft.ico" type="image/x-icon">
+	<link rel="stylesheet" href='./hotsex.css'>
+	<script src="./hotsex.js"></script>
 </head>
 
 	
@@ -32,8 +34,16 @@
         <img src="./spurdo.png" style="width: 100px; float: right; padding: 4px;">
     </div>
 <body>
+  <audio id="im1">
+    <source src="imsend.wav" type="audio/ogg">
+    Your browser does not support the audio element.
+  </audio>
+  <audio id="im2">
+    <source src="imrcv.wav" type="audio/ogg">
+    Your browser does not support the audio element.
+  </audio>
 
-    <div id="renderer"></div>
+
     <div class="container">
         <nav>
             <ul class="d-flex">
@@ -71,18 +81,30 @@
         </nav>
         <br>
         <div class="row d-flex justify-content-center">
-            <div class="col-lg-8" style="background-color:white; border:1px solid black; overflow:hidden;">
-                <p>
-                    Good Evening Twitter, this is your boy EatDatPussy445, and about like 30-45 minutes ago, I beat the fuck out of my dick so
-                    god damn hard that I can't even feel my left leg, my left leg has went totally numb. And, my dick has
-                    also went totally numb, to the point that it feels fucking weird when I go and take a piss.
-                </p>
-                <img src="spurdo.png" class="spurdo">
-            </div>
-            <br>
-            <div class="col-lg-2">
-                <object type="text/html" data="https://amzexchange.pw/live.php" style="width:313px; height:327px;"></object>
-            </div>
+
+		
+		            <div class="col-md-5" style="background-color:white; border:1px solid black; padding:0; overflow:hidden;">
+              <div id="sex-chat">
+
+
+                <div>
+                  <img src="./aol.jpg" width="100%; height:100%;" style=" margin-top:5px;">
+                </div>
+                <div id="chat-data" style="overflow-y: auto; max-height: 246px;min-height: 246px; margin-bottom: 10px;">
+    							<ul id="chat-panel" class="list-group-item message-pane-wrapper">
+    								<div id="chat-box" class="message-pane">
+
+
+    								</div>
+    							</ul>
+    						</div>
+                  <div>
+                    <input id="chat-input" type="text" class="form-control">
+                  </div>
+
+                </div>
+              </div>
+		
 
         </div>
         <a href="http://bees.ai" class="bee-link" title="my favorite website">
@@ -195,74 +217,51 @@
                     console.log("Could not play audio. Blame chrome")
                 });
         });
+		
+		let chatInput = document.getElementById('chat-input');
 
-        init();
-        animate();
+const addChatItem = function addChat() {
+  const box = document.querySelector('.message-pane');
+  const newHTML = (`<li><div class="c-send">${chatInput.value}</div></li>`);
 
-        function init() {
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.set(149, 339, 1187);
-            camera.lookAt(new THREE.Vector3());
+  box.insertAdjacentHTML('beforeend', newHTML);
+    chatInput.value = '';
 
-            createObjects();
+}
 
-            window.addEventListener("resize", onResize);
-            renderer = new THREE.CSS3DRenderer();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            document.getElementById("renderer").appendChild(renderer.domElement);
+const chatResponse1 = function() {
+  const box = document.querySelector('.message-pane');
+  let responseNum = Math.floor(Math.random() * 6 + 1)
+  const resArr = ['Hey sexy, what\'s up ;)', 'asl?', 'I want you to stick it in every hole. Every single one.', 'i have a fetish for the state of ohio ;3', 'daddy, give me your cummies~', 'mmm..soo horny right now ;)', 'u r pretty hot... ' ]
+  let response = resArr[responseNum];
+  const newHTML = (`<li><div class="c-recieve">${response}</div></li>`);
+  setTimeout(() => {
+    box.insertAdjacentHTML('beforeend', newHTML);
+    imrcv();
+  }, 2200)
+}
 
-            controls = new THREE.OrbitControls(camera, renderer.domElement);
-            
-            controls.keys.UP = 87;
-            controls.keys.BOTTOM = 83;
-            controls.keys.LEFT = 65;
-            controls.keys.RIGHT = 68;
-            controls.keyPanSpeed = 20;
+document.getElementById('sex-chat').addEventListener('keypress', function(event) {
+
+    if (event.keyCode === 13) {
+        addChatItem();
+        imsend();
+        chatResponse1();
+    }
+
+});
+
+const imsend = function() {
+  const send = document.getElementById('im1');
+  send.play();
+}
+
+const imrcv = function() {
+  const rcv = document.getElementById('im2');
+  rcv.play();
+}
 
 
-        }
-
-        function createObjects() {
-            var obj = new THREE.CSS3DObject(document.getElementsByClassName("container")[0]);
-            scene.add(obj);
-
-            var elemAfrica = document.createElement("img");
-            elemAfrica.src = "africa.jpg";
-            elemAfrica.style.cursor = "pointer";
-            document.body.appendChild(elemAfrica);
-            elemAfrica.addEventListener("click", function () {
-                if (!musicplayer.paused) {
-                    musicplayer.pause();
-                } else {
-                    musicplayer.play();
-                }
-            });
-
-            var africa = new THREE.CSS3DObject(elemAfrica);
-            africa.position.x = 1000;
-            africa.position.z = 500;
-            africa.rotation.y = Math.PI / 2;
-
-            objects.africa = africa;
-            scene.add(africa);
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-
-            objects.africa.rotation.x += 0.001
-            objects.africa.rotation.y += 0.001;
-
-            controls.update();
-            renderer.render(scene, camera);
-        }
-
-        function onResize() {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        }
     </script>
 </body>
 
