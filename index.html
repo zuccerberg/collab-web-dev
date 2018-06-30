@@ -11,7 +11,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" href="ass.css"> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.min.js"></script>
     <script src="js/three.min.js"></script>
@@ -23,14 +23,15 @@
     <link rel="icon" href="/4soft.ico" type="image/x-icon">
 </head>
 
-	
-    <div id="policy" style="float: left; background-color: white; border-color: black; border-width: 3px; border-style: groove; ">
-        <div style="float: left;">
-            <h1>We ubdaded our briwacy bolicy</h1>
-            <h3>Also we use googies</h3>
-        </div>
-        <img src="./spurdo.png" style="width: 100px; float: right; padding: 4px;">
+
+<div id="policy" style="float: left; background-color: white; border-color: black; border-width: 3px; border-style: groove; ">
+    <div style="float: left;">
+        <h1>We ubdaded our briwacy bolicy</h1>
+        <h3>Also we use googies</h3>
     </div>
+    <img src="./spurdo.png" style="width: 100px; float: right; padding: 4px;">
+</div>
+
 <body>
 
     <div id="renderer"></div>
@@ -187,6 +188,22 @@
         var scene, camera, renderer;
         var controls;
         var objects = {};
+        var velocity = {
+            x: 0,
+            y: 0,
+            z: 0,
+        }
+        var direction = {
+            forward: false,
+            backward: false,
+            left: false,
+            right: false,
+        }
+
+        var movespeed = 3;
+        var friction = 0.3;
+        var sprinting = false;
+        var sprintMultiplier = 3;
 
         window.addEventListener("load", function () {
             musicplayer = new Audio("africa.mp3")
@@ -213,20 +230,63 @@
             document.getElementById("renderer").appendChild(renderer.domElement);
 
             controls = new THREE.OrbitControls(camera, renderer.domElement);
-            
-            controls.keys.UP = 87;
-            controls.keys.BOTTOM = 83;
-            controls.keys.LEFT = 65;
-            controls.keys.RIGHT = 68;
-            controls.keyPanSpeed = 20;
 
+            // controls.keys.UP = 87;
+            // controls.keys.BOTTOM = 83;
+            // controls.keys.LEFT = 65;
+            // controls.keys.RIGHT = 68;
+            // controls.keyPanSpeed = 20;
 
+            window.addEventListener("keydown", onKeydown);
+            window.addEventListener("keyup", onKeyup);
+        }
+
+        function onKeydown(e) {
+            switch (e.keyCode) {
+                case 87: // W
+                    direction.forward = true;
+                    break;
+                case 83: // S
+                    direction.backward = true;
+                    break;
+                case 65: // A
+                    direction.left = true;
+                    break;
+                case 68: // D
+                    direction.right = true;
+                    break;
+                case 16:
+                    sprinting = true;
+                    break;
+            }
+        }
+
+        function onKeyup(e) {
+            switch (e.keyCode) {
+                case 87: // W
+                    direction.forward = false;
+                    break;
+                case 83: // S
+                    direction.backward = false;
+                    break;
+                case 65: // A
+                    direction.left = false;
+                    break;
+                case 68: // D
+                    direction.right = false;
+                    break;
+                case 16:
+                    sprinting = false;
+                    break;
+            }
         }
 
         function createObjects() {
             var obj = new THREE.CSS3DObject(document.getElementsByClassName("container")[0]);
             scene.add(obj);
 
+
+            // Africa ======================
             var elemAfrica = document.createElement("img");
             elemAfrica.src = "africa.jpg";
             elemAfrica.style.cursor = "pointer";
@@ -246,13 +306,62 @@
 
             objects.africa = africa;
             scene.add(africa);
-        }
 
+
+            // Privacy policy ================
+            var privacyPolicy = new THREE.CSS3DObject(document.getElementById("policy"));
+            privacyPolicy.position.x = -1000
+            privacyPolicy.position.z = 500;
+            privacyPolicy.rotation.y = Math.PI * (0.25);
+            objects.privacyPolicy = privacyPolicy;
+            scene.add(privacyPolicy);
+
+            // Character ==================
+            var characterElem = document.createElement("img");
+            characterElem.src = "character.png";
+            var character = new THREE.CSS3DObject(characterElem);
+            objects.character = character;
+            scene.add(character);
+        }
+        
         function animate() {
             requestAnimationFrame(animate);
-
+            // Africa
             objects.africa.rotation.x += 0.001
             objects.africa.rotation.y += 0.001;
+
+            // Movement
+            var dir = new THREE.Vector3();
+            dir.z = Number(direction.forward) - Number(direction.backward);
+            dir.x = Number(direction.left) - Number(direction.right);
+            dir.normalize();
+
+            velocity.x -= velocity.x * friction;
+            velocity.z -= velocity.z * friction;
+
+            var speed = movespeed;
+            if (sprinting) {
+                speed *= sprintMultiplier;
+            }
+
+            if (direction.forward || direction.backward) {
+                velocity.z -= dir.z * speed;
+            }
+
+            if (direction.left || direction.right) {
+                velocity.x -= dir.x * speed;
+            }
+
+            controls.pan(-velocity.x, -velocity.z);
+
+            // Character
+            objects.character.position.x = controls.target.x;
+            objects.character.position.y = controls.target.y - 500;
+            objects.character.position.z = controls.target.z;
+
+            objects.character.rotation.x = camera.rotation.x;
+            objects.character.rotation.y = camera.rotation.y;
+            objects.character.rotation.z = camera.rotation.z;
 
             controls.update();
             renderer.render(scene, camera);
