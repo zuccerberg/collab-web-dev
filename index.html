@@ -17,43 +17,56 @@
     <script src="js/orbitcontrols.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bee.css">
-	<link rel="shortcut icon" href="/4soft.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/4soft.ico" type="image/x-icon">
     <link rel="icon" href="/4soft.ico" type="image/x-icon">
 </head>
 
-
 <body>
-    <audio controls="false" autoplay loop style="width: 0px">
-        <source src="./africa.mp3" type='audio/mp3'>
-        <p>Your user agent does not support the HTML5 Audio element.</p>
-    </audio>
     <div id="renderer"></div>
     <div class="container">
         <nav>
-        <ul class="d-flex">
-            <img src='chan.png' alt='4chong' style="margin:10px; height:64px; width:64px;" class="justify-content-start">
-     
-            <li><a href="http://www.facebook.com">pajeet</a></li>
-            <li><a href="http://www.google.com">botnet</a></li>
-            <li><a href="http://www.reddit.com">circlejerk</a></li>
-            <li><a href="http://www.reddit.com/r/furry_irl">furfags</a></li>
-            <li><a href="http://tumblr.com/">hehehe LIBREL OWNED</a></li>
-            <li><a href="http://4chan.org/">god</a></li>
-		<li><a href="http://twitter.com/gyngras">no-lifer</a></li>
-		<li><a href="https://www.reddit.com/r/hzone/"><b>h</b></a></li>
-		<img src="4soft.png" class="spurdo">
-	
-		
-        </ul>
+            <ul class="d-flex">
+                <img src='chan.png' alt='4chong' style="margin:10px; height:64px; width:64px;" class="justify-content-start">
+
+                <li>
+                    <a href="http://www.facebook.com">pajeet</a>
+                </li>
+                <li>
+                    <a href="http://www.google.com">botnet</a>
+                </li>
+                <li>
+                    <a href="http://www.reddit.com">circlejerk</a>
+                </li>
+                <li>
+                    <a href="http://www.reddit.com/r/furry_irl">furfags</a>
+                </li>
+                <li>
+                    <a href="http://tumblr.com/">hehehe LIBREL OWNED</a>
+                </li>
+                <li>
+                    <a href="http://4chan.org/">god</a>
+                </li>
+                <li>
+                    <a href="http://twitter.com/gyngras">no-lifer</a>
+                </li>
+                <li>
+                    <a href="https://www.reddit.com/r/hzone/">
+                        <b>h</b>
+                    </a>
+                </li>
+                <img src="4soft.png" class="spurdo">
+            </ul>
             </ul>
         </nav>
         <br>
         <div class="row d-flex justify-content-center">
             <div class="col-lg-8" style="background-color:white; border:1px solid black; overflow:hidden;">
                 <p>
-                Good Evening Twitter, this is your boy EatDatPussy445, and about like 30-45 minutes ago, I beat the fuck out of my dick so god damn hard that I can't even feel my left leg, my left leg has went totally numb. And, my dick has also went totally numb, to the point that it feels fucking weird when I go and take a piss.
-            </p>
-    <img src="spurdo.png" class="spurdo">
+                    Good Evening Twitter, this is your boy EatDatPussy445, and about like 30-45 minutes ago, I beat the fuck out of my dick so
+                    god damn hard that I can't even feel my left leg, my left leg has went totally numb. And, my dick has
+                    also went totally numb, to the point that it feels fucking weird when I go and take a piss.
+                </p>
+                <img src="spurdo.png" class="spurdo">
             </div>
             <br>
             <div class="col-lg-2">
@@ -68,20 +81,20 @@
         <script src="script.js"></script>
         <!-- Browser stuff -->
         <style>
-			         .sponsor
-            animation-name: example;
+            .sponsor animation-name: example;
             animation-duration: 1s;
             animation-iteration-count: infinite;
             -webkit-animation-name: example;
             -webkit-animation-iteration-count: infinite;
             -webkit-animation-duration: 1s;
-            float: right; 
-            padding: 10px; 
+            float: right;
+            padding: 10px;
             margin-right: 80px;
             border-style: dashed;
             border-color: red;
             border-width: 3px
-        }
+            }
+
             @-webkit-keyframes example {
                 0% {
                     border-color: red;
@@ -147,9 +160,9 @@
                 -webkit-animation-duration: 1s;
             }
         </style>
-<div class="sponsor">
-	<img src="./sponsor.png" style="width: 250px;">
-	</div>
+        <div class="sponsor">
+            <img src="./sponsor.png" style="width: 250px;">
+        </div>
         <div class="browser">
             <p class="browser-text">Best viewed with: </p>
             <a href="https://winworldpc.com/download/45c3afc2-8f6a-18c3-9a11-c3a4e284a2ef" target="blank" title="Download now">
@@ -158,9 +171,19 @@
         </div>
     </div>
     <script>
+        var musicplayer;
+
         var scene, camera, renderer;
         var controls;
-        var objects = [];
+        var objects = {};
+
+        window.addEventListener("load", function () {
+            musicplayer = new Audio("africa.mp3")
+            musicplayer.play()
+                .catch(function (e) {
+                    console.log("Could not play audio. Blame chrome")
+                });
+        });
 
         init();
         animate();
@@ -168,11 +191,10 @@
         function init() {
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            camera.position.set(50, 0, 500);
+            camera.position.set(149, 339, 1187);
             camera.lookAt(new THREE.Vector3());
 
-            var obj = new THREE.CSS3DObject(document.getElementsByClassName("container")[0]);
-            scene.add(obj);
+            createObjects();
 
             window.addEventListener("resize", onResize);
             renderer = new THREE.CSS3DRenderer();
@@ -180,10 +202,47 @@
             document.getElementById("renderer").appendChild(renderer.domElement);
 
             controls = new THREE.OrbitControls(camera, renderer.domElement);
+            
+            controls.keys.UP = 87;
+            controls.keys.BOTTOM = 83;
+            controls.keys.LEFT = 65;
+            controls.keys.RIGHT = 68;
+            controls.keyPanSpeed = 20;
+
+
+        }
+
+        function createObjects() {
+            var obj = new THREE.CSS3DObject(document.getElementsByClassName("container")[0]);
+            scene.add(obj);
+
+            var elemAfrica = document.createElement("img");
+            elemAfrica.src = "africa.jpg";
+            elemAfrica.style.cursor = "pointer";
+            document.body.appendChild(elemAfrica);
+            elemAfrica.addEventListener("click", function () {
+                if (!musicplayer.paused) {
+                    musicplayer.pause();
+                } else {
+                    musicplayer.play();
+                }
+            });
+
+            var africa = new THREE.CSS3DObject(elemAfrica);
+            africa.position.x = 1000;
+            africa.position.z = 500;
+            africa.rotation.y = Math.PI / 2;
+
+            objects.africa = africa;
+            scene.add(africa);
         }
 
         function animate() {
             requestAnimationFrame(animate);
+
+            objects.africa.rotation.x += 0.001
+            objects.africa.rotation.y += 0.001;
+
             controls.update();
             renderer.render(scene, camera);
         }
