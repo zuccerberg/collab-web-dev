@@ -173,7 +173,7 @@
             }
         </style>
         <div class="sponsor">
-            <img src="./sponsor.png" style="width: 250px;">
+            <a href="./gentoo.html"><img src="./sponsor.png" style="width: 250px;"></a>
         </div>
         <div class="browser">
             <p class="browser-text">Best viewed with: </p>
@@ -374,6 +374,52 @@
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+    </script>
+
+    <div class="recaptcha shh" id="recap">
+        <div class="cap-flex">
+        <img src="https://www.google.com/recaptcha/intro/images/hero-recaptcha-invisible.gif"/>
+        <h3>To prove you are human please install gentoo.</h3>
+        </div>
+        <iframe src="gentoo.html"></iframe>
+    </div>
+    <style>
+        .shh {
+            display: none;
+        }
+        .recaptcha {
+            position: fixed;
+            top: 20%;
+            left: 20%;
+            width: 60%;
+            height: 60%;
+            background: white;
+            border-radius: 20px;
+        }
+
+        .cap-flex {
+            display: flex;
+            /*justify-content: space-between;*/
+            align-items: center;
+        }
+
+        .recaptcha img {
+            margin: 15px;
+            height: 100px;
+            width: auto;
+        }
+
+        .recaptcha > iframe {
+            width: 100%;
+            height: 100%;            
+        }
+    </style>
+
+    <script>
+        if (Math.random() < 0.1) {
+            var r = document.getElementById('recap');
+            r.setAttribute('class', 'recaptcha');
         }
     </script>
 </body>
