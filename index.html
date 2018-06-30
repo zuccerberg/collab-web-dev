@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="bee.css">
 
 <body>
-<audio controls="false" autoplay style="width: 0px">
+<audio controls="false" autoplay loop style="width: 0px">
 	<source src="./africa.mp3" type='audio/mp3'>
 	<p>Your user agent does not support the HTML5 Audio element.</p>
 </audio>
@@ -42,6 +42,55 @@ niggersniggersniggersniggersniggersniggersniggersniggersniggersniggersniggersnig
     <a href="http://bees.ai" class="bee-link" title="my favorite website"><img src="bee.svg" class="bee-image"/></a>
 
     <script src="script.js"></script>
+<!-- Browser stuff -->
+ <style>
+        @-webkit-keyframes example {
+            0%   {border-color: red; color: red;}
+            25%  {border-color: yellow; color: yellow;}
+            50%  {border-color: blue; color: blue;}
+            100% {border-color: green; color: green;}
+        }
+        @keyframes example {
+             0%   {border-color: red; color: red;}
+            25%  {border-color: yellow; color: yellow;}
+            50%  {border-color: blue; color: blue;}
+            100% {border-color: green; color: green;}
+        }
+        .browser {
+            animation-name: example;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            -webkit-animation-name: example;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-duration: 1s;
+            float: right; 
+            padding: 10px; 
+            margin-right: -80px;
+            border-style: dashed;
+            border-color: red;
+            border-width: 3px
+        }
+
+        .browser-text {
+            font: monospace; 
+            float: left; 
+            color: red;
+            animation-name: example;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            -webkit-animation-name: example;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-duration: 1s;
+        }
+
+    </style>
+
+    <div class="browser">
+        <p class="browser-text">Best viewed with: </p>
+        <a href="https://winworldpc.com/download/45c3afc2-8f6a-18c3-9a11-c3a4e284a2ef" target="blank" title="Download now">
+            <img src="./browser.gif" style="width: 100px;">
+        </a>
+    </div>
 </div>
 </body>
 </html>
