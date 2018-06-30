@@ -12,6 +12,14 @@ body {
   background-image:url('http://i0.kym-cdn.com/photos/images/newsfeed/000/328/161/576.gif');
 }
 
+#renderer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+}
+
 nav ul {
     list-style-type: none;
     margin: 0;
