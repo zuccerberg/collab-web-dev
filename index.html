@@ -27,14 +27,202 @@
     <link rel="stylesheet" href="bee.css">
     <link rel="shortcut icon" href="/4soft.ico" type="image/x-icon">
     <link rel="icon" href="4soft.ico" type="image/x-icon">
+
+    <style>
+        .shh {
+            display: none;
+        }
+
+        .recaptcha {
+            position: fixed;
+            top: 20%;
+            left: 20%;
+            width: 60%;
+            height: 60%;
+            background: white;
+            border-radius: 20px;
+        }
+
+        .cap-flex {
+            display: flex;
+            /*justify-content: space-between;*/
+            align-items: center;
+        }
+
+        .recaptcha img {
+            margin: 15px;
+            height: 100px;
+            width: auto;
+        }
+
+        .recaptcha>iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        .sponsor {
+            animation-name: example;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            -webkit-animation-name: example;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-duration: 1s;
+            float: right;
+            padding: 10px;
+            margin-right: 80px;
+            border-style: dashed;
+            border-color: red;
+            border-width: 3px
+        }
+
+        @-webkit-keyframes example {
+            0% {
+                border-color: red;
+                color: red;
+            }
+            25% {
+                border-color: yellow;
+                color: yellow;
+            }
+            50% {
+                border-color: blue;
+                color: blue;
+            }
+            100% {
+                border-color: green;
+                color: green;
+            }
+        }
+
+        @keyframes example {
+            0% {
+                border-color: red;
+                color: red;
+            }
+            25% {
+                border-color: yellow;
+                color: yellow;
+            }
+            50% {
+                border-color: blue;
+                color: blue;
+            }
+            100% {
+                border-color: green;
+                color: green;
+            }
+        }
+
+        .browser {
+            animation-name: example;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            -webkit-animation-name: example;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-duration: 1s;
+            float: right;
+            padding: 10px;
+            margin-right: -80px;
+            border-style: dashed;
+            border-color: red;
+            border-width: 3px
+        }
+
+        .browser-text {
+            font: monospace;
+            float: left;
+            color: red;
+            animation-name: example;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            -webkit-animation-name: example;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-duration: 1s;
+        }
+
+        .sponsor {
+            animation-name: example;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            -webkit-animation-name: example;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-duration: 1s;
+            float: right;
+            padding: 10px;
+            margin-right: 80px;
+            border-style: dashed;
+            border-color: red;
+            border-width: 3px
+        }
+
+        @-webkit-keyframes example {
+            0% {
+                border-color: red;
+                color: red;
+            }
+            25% {
+                border-color: yellow;
+                color: yellow;
+            }
+            50% {
+                border-color: blue;
+                color: blue;
+            }
+            100% {
+                border-color: green;
+                color: green;
+            }
+        }
+
+        @keyframes example {
+            0% {
+                border-color: red;
+                color: red;
+            }
+            25% {
+                border-color: yellow;
+                color: yellow;
+            }
+            50% {
+                border-color: blue;
+                color: blue;
+            }
+            100% {
+                border-color: green;
+                color: green;
+            }
+        }
+
+        .browser {
+            animation-name: example;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            -webkit-animation-name: example;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-duration: 1s;
+            float: right;
+            padding: 10px;
+            margin-right: -80px;
+            border-style: dashed;
+            border-color: red;
+            border-width: 3px
+        }
+
+        .browser-text {
+            font: monospace;
+            float: left;
+            color: red;
+            animation-name: example;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            -webkit-animation-name: example;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-duration: 1s;
+        }
+    </style>
 </head>
 
 <body>
-        <audio controls="false" autoplay loop style="width: 0px">
-        <source src="./africa.mp3" type='audio/mp3'>
-        <p>Your user agent does not support the HTML5 Audio element.</p>
-    </audio>
-    
     <div id="policy" style="float: left; background-color: white; border-color: black; border-width: 3px; border-style: groove; width: 450px;">
         <div style="float: left;">
             <h1>To Be fair, </h1>
@@ -114,89 +302,6 @@
             <img src="bee.svg" class="bee-image" />
         </a>
 
-        <!-- Browser stuff -->
-        <style>
-            .sponsor {
-                animation-name: example;
-                animation-duration: 1s;
-                animation-iteration-count: infinite;
-                -webkit-animation-name: example;
-                -webkit-animation-iteration-count: infinite;
-                -webkit-animation-duration: 1s;
-                float: right;
-                padding: 10px;
-                margin-right: 80px;
-                border-style: dashed;
-                border-color: red;
-                border-width: 3px
-            }
-
-            @-webkit-keyframes example {
-                0% {
-                    border-color: red;
-                    color: red;
-                }
-                25% {
-                    border-color: yellow;
-                    color: yellow;
-                }
-                50% {
-                    border-color: blue;
-                    color: blue;
-                }
-                100% {
-                    border-color: green;
-                    color: green;
-                }
-            }
-
-            @keyframes example {
-                0% {
-                    border-color: red;
-                    color: red;
-                }
-                25% {
-                    border-color: yellow;
-                    color: yellow;
-                }
-                50% {
-                    border-color: blue;
-                    color: blue;
-                }
-                100% {
-                    border-color: green;
-                    color: green;
-                }
-            }
-
-            .browser {
-                animation-name: example;
-                animation-duration: 1s;
-                animation-iteration-count: infinite;
-                -webkit-animation-name: example;
-                -webkit-animation-iteration-count: infinite;
-                -webkit-animation-duration: 1s;
-                float: right;
-                padding: 10px;
-                margin-right: -80px;
-                border-style: dashed;
-                border-color: red;
-                border-width: 3px
-            }
-
-            .browser-text {
-                font: monospace;
-                float: left;
-                color: red;
-                animation-name: example;
-                animation-duration: 1s;
-                animation-iteration-count: infinite;
-                -webkit-animation-name: example;
-                -webkit-animation-iteration-count: infinite;
-                -webkit-animation-duration: 1s;
-            }
-        </style>
-
         <div class="sponsor">
             <a href="./gentoo.html">
                 <img src="./sponsor.png" style="width: 250px;">
@@ -222,10 +327,15 @@
 
         // Add 3D elements here
         var objectList = [
-            {
+            { // instructions
+                html: `<h1>WASD to move<br>Click and drag to rotate camera</h1>`,
+                rotation: { x: 0, y: 0, z: 0 },
+                position: { x: 900, y: 600, z: 0 },
+            },
+            { // Lain gif
                 html: `<img src="lain_gentoo.gif">`,
                 rotation: {
-                    x: Math.PI*0.25, 
+                    x: Math.PI * 0.25,
                     y: 0,
                     z: 0,
                 },
@@ -262,10 +372,10 @@
 
         window.addEventListener("load", function () {
             musicplayer = new Audio("africa.mp3")
-            // musicplayer.play()
-            //     .catch(function (e) {
-            //         console.log("Could not play audio. Blame jewgle")
-            //     });
+            musicplayer.play()
+                .catch(function (e) {
+                    console.log("Could not play audio. Blame jewgle")
+                });
         });
 
         function init() {
@@ -426,7 +536,7 @@
             scene.add(character);
 
             // Object list ===========
-            for ( var i=0; i < objectList.length; i++) {
+            for (var i = 0; i < objectList.length; i++) {
                 var div = document.createElement("div");
                 div.innerHTML = objectList[i].html;
                 var tmpel = new THREE.CSS3DObject(div);
@@ -512,39 +622,6 @@
         </div>
         <iframe src="gentoo.html"></iframe>
     </div>
-    <style>
-        .shh {
-            display: none;
-        }
-
-        .recaptcha {
-            position: fixed;
-            top: 20%;
-            left: 20%;
-            width: 60%;
-            height: 60%;
-            background: white;
-            border-radius: 20px;
-        }
-
-        .cap-flex {
-            display: flex;
-            /*justify-content: space-between;*/
-            align-items: center;
-        }
-
-        .recaptcha img {
-            margin: 15px;
-            height: 100px;
-            width: auto;
-        }
-
-        .recaptcha>iframe {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-
     <script>
         if (Math.random() < 0.1) {
             var r = document.getElementById('recap');
