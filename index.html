@@ -248,8 +248,19 @@
             // controls.keys.RIGHT = 68;
             // controls.keyPanSpeed = 20;
 
-            window.addEventListener("keydown", onKeydown);
-            window.addEventListener("keyup", onKeyup);
+            document.body.addEventListener("keydown", onKeydown);
+            document.body.addEventListener("keyup", onKeyup);
+            
+            // Defocus anything that was focused so movement controls works
+            // definitely not a hack
+            setInterval(blurAll, 500);
+        }
+
+        function blurAll() {
+            var inpt = document.createElement("input");
+            document.body.appendChild(inpt);
+            inpt.focus();
+            document.body.removeChild(inpt);
         }
 
         function onKeydown(e) {
@@ -295,12 +306,14 @@
         function createVideos() {
             for (var i=0; i < hallOfVideos.length; i++) {
                 var container = document.createElement("div");
+                container.style.height = "700px";
 
                 var elem = document.createElement("div");
+                elem.style.height = "700px";
                 elem.innerHTML = hallOfVideos[i];
 
                 var btnHide = document.createElement("button")
-                btnHide.innerHTML = "show/hide (hide to regain keyboard movement control)";
+                btnHide.innerHTML = "show/hide";
                 btnHide.style.width = "100%";
                 btnHide.style.height = "50px";
                 btnHide.addEventListener("click", (function(idx, elem) {
