@@ -1,12 +1,9 @@
-body {
-  font-family: sans-serif;
-}
-
 header h1 {
   text-align: center;
 }
 
 body {
+  font-family: sans-serif;
   margin:0;
   background-color:black;
   background-image:url('http://i0.kym-cdn.com/photos/images/newsfeed/000/328/161/576.gif');
