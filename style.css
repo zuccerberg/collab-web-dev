@@ -75,7 +75,7 @@ nav .active {
 .spurdo {
   height:100px;
   width:100px;
-	animation: spurdo 1s infinite linear;
+   animation: spurdo 1s infinite linear;
 }
 @keyframes spurdo {
 	0% {transform:rotate(0deg)}
