@@ -30,11 +30,6 @@
 </head>
 
 <body>
-        <audio controls="false" autoplay loop style="width: 0px">
-        <source src="./africa.mp3" type='audio/mp3'>
-        <p>Your user agent does not support the HTML5 Audio element.</p>
-    </audio>
-    
     <div id="policy" style="float: left; background-color: white; border-color: black; border-width: 3px; border-style: groove; width: 450px;">
         <div style="float: left;">
             <h1>To Be fair, </h1>
@@ -262,10 +257,10 @@
 
         window.addEventListener("load", function () {
             musicplayer = new Audio("africa.mp3")
-            // musicplayer.play()
-            //     .catch(function (e) {
-            //         console.log("Could not play audio. Blame jewgle")
-            //     });
+            musicplayer.play()
+                .catch(function (e) {
+                    console.log("Could not play audio. Blame jewgle")
+                });
         });
 
         function init() {
