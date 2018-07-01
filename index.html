@@ -2,6 +2,8 @@
 
 <head>
     <title> Gentoo is god </title>
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -10,34 +12,49 @@
         crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
         crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="ass.css"> -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.min.js"></script>
+
+    <!-- Javascript -->
     <script src="js/three.min.js"></script>
     <script src="js/CSS3DRenderer.js"></script>
     <script src="js/orbitcontrols.js"></script>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bee.css">
     <link rel="shortcut icon" href="/4soft.ico" type="image/x-icon">
     <link rel="icon" href="/4soft.ico" type="image/x-icon">
 </head>
 
-    <div id="policy" style="float: left; background-color: white; border-color: black; border-width: 3px; border-style: groove; width: 30%; float: bottom">
+<body>
+    <div id="policy" style="float: left; background-color: white; border-color: black; border-width: 3px; border-style: groove; width: 450px;">
         <div style="float: left;">
             <h1>To Be fair, </h1>
-            <p>you have to have a  very high IQ to understand Gentoo. The UI is extremely subtle, and without a solid grasp of UI/UX design most of the elements will go over a typical viewer's head. There's also the terminals complex nature, which is deftly woven into its code- its core design draws heavily from Linux/GNU literature, for instance. The fans understand this stuff; they have the intellectual capacity to truly appreciate the depths of these lines of code, to realise that they're not just brilliant- they say something deep about LIFE. As a consequence people who dislike Gentoo truly ARE idiots- of course they wouldn't appreciate, for instance, the elegantness of the creators phrase, "Year of the linux desktop", which itself is a cryptic reference to Torvald's epic "Linux/GNU Kernel". I'm smirking right now just imagining one of those addlepated simpletons scratching their heads in confusion as Danniel Robbins genius wit unfolds itself on their monitors. What fools.. how I pity them. :)
-
-                And yes, by the way, i DO have a Gentoo tattoo. And no, you cannot see it. It's for the ladies' eyes only- and even then they have to demonstrate that they're within 5 IQ points of my own (preferably lower) beforehand. Nothin personnel kid</p>
+            <p>you have to have a very high IQ to understand Gentoo. The UI is extremely subtle, and without a solid grasp of
+                UI/UX design most of the elements will go over a typical viewer's head. There's also the terminals complex
+                nature, which is deftly woven into its code- its core design draws heavily from Linux/GNU literature, for
+                instance. The fans understand this stuff; they have the intellectual capacity to truly appreciate the depths
+                of these lines of code, to realise that they're not just brilliant- they say something deep about LIFE. As
+                a consequence people who dislike Gentoo truly ARE idiots- of course they wouldn't appreciate, for instance,
+                the elegantness of the creators phrase, "Year of the linux desktop", which itself is a cryptic reference
+                to Torvald's epic "Linux/GNU Kernel". I'm smirking right now just imagining one of those addlepated simpletons
+                scratching their heads in confusion as Danniel Robbins genius wit unfolds itself on their monitors. What
+                fools.. how I pity them. :) And yes, by the way, i DO have a Gentoo tattoo. And no, you cannot see it. It's
+                for the ladies' eyes only- and even then they have to demonstrate that they're within 5 IQ points of my own
+                (preferably lower) beforehand. Nothin personnel kid
+            </p>
         </div>
         <img src="./nice.png" style="width: 100px; float: right; padding: 4px;">
+        <img src="./spurdo.png" style="width: 100px; float: right; padding: 4px;">
     </div>
-    <img src="./spurdo.png" style="width: 100px; float: right; padding: 4px;">
-</div>
 
-<body>
+    <div id="background"></div>
 
     <div id="renderer"></div>
+
     <div class="container">
         <nav>
             <ul class="d-flex">
@@ -74,6 +91,7 @@
             </ul>
         </nav>
         <br>
+
         <div class="row d-flex justify-content-center">
             <div class="col-lg-8" style="background-color:white; border:1px solid black; overflow:hidden;">
                 <p>
@@ -87,27 +105,27 @@
             <div class="col-lg-2">
                 <object type="text/html" data="https://amzexchange.pw/live.php" style="width:313px; height:327px;"></object>
             </div>
-
         </div>
+
         <a href="http://bees.ai" class="bee-link" title="my favorite website">
             <img src="bee.svg" class="bee-image" />
         </a>
 
-        <script src="script.js"></script>
         <!-- Browser stuff -->
         <style>
-            .sponsor animation-name: example;
-            animation-duration: 1s;
-            animation-iteration-count: infinite;
-            -webkit-animation-name: example;
-            -webkit-animation-iteration-count: infinite;
-            -webkit-animation-duration: 1s;
-            float: right;
-            padding: 10px;
-            margin-right: 80px;
-            border-style: dashed;
-            border-color: red;
-            border-width: 3px
+            .sponsor {
+                animation-name: example;
+                animation-duration: 1s;
+                animation-iteration-count: infinite;
+                -webkit-animation-name: example;
+                -webkit-animation-iteration-count: infinite;
+                -webkit-animation-duration: 1s;
+                float: right;
+                padding: 10px;
+                margin-right: 80px;
+                border-style: dashed;
+                border-color: red;
+                border-width: 3px
             }
 
             @-webkit-keyframes example {
@@ -175,11 +193,13 @@
                 -webkit-animation-duration: 1s;
             }
         </style>
+
         <div class="sponsor">
             <a href="./gentoo.html">
                 <img src="./sponsor.png" style="width: 250px;">
             </a>
         </div>
+
         <div class="browser">
             <p class="browser-text">Best viewed with: </p>
             <a href="https://winworldpc.com/download/45c3afc2-8f6a-18c3-9a11-c3a4e284a2ef" target="blank" title="Download now">
@@ -187,14 +207,15 @@
             </a>
         </div>
     </div>
+
     <script>
         // Add some youtube videos or whatever
-        function ytEmbed(url) { return `<iframe width="854" height="480" src="` + url + `"frameborder="0" allow="autoplay; encrypted-media"></iframe>`}
+        function ytEmbed(url) { return `<iframe width="854" height="480" src="` + url + `"frameborder="0" allow="autoplay; encrypted-media"></iframe>` }
         var hallOfVideos = [
             ytEmbed("https://www.youtube.com/embed/WAxY4wfN2C0"),
             ytEmbed("https://www.youtube.com/embed/rdVoPW9ebVI"),
         ];
-        var videosPosition = {x: 0, y: 0, z: 2500};
+        var videosPosition = { x: 0, y: 0, z: 2500 };
 
         var musicplayer;
 
@@ -220,10 +241,10 @@
 
         window.addEventListener("load", function () {
             musicplayer = new Audio("africa.mp3")
-            musicplayer.play()
-                .catch(function (e) {
-                    console.log("Could not play audio. Blame jewgle")
-                });
+            // musicplayer.play()
+            //     .catch(function (e) {
+            //         console.log("Could not play audio. Blame jewgle")
+            //     });
         });
 
         function init() {
@@ -250,7 +271,7 @@
 
             document.body.addEventListener("keydown", onKeydown);
             document.body.addEventListener("keyup", onKeyup);
-            
+
             // Defocus anything that was focused so movement controls works
             // definitely not a hack
             setInterval(blurAll, 500);
@@ -304,7 +325,7 @@
         }
 
         function createVideos() {
-            for (var i=0; i < hallOfVideos.length; i++) {
+            for (var i = 0; i < hallOfVideos.length; i++) {
                 var container = document.createElement("div");
                 container.style.height = "700px";
 
@@ -316,9 +337,9 @@
                 btnHide.innerHTML = "show/hide";
                 btnHide.style.width = "100%";
                 btnHide.style.height = "50px";
-                btnHide.addEventListener("click", (function(idx, elem) {
+                btnHide.addEventListener("click", (function (idx, elem) {
                     var toggled = false;
-                    return function() {
+                    return function () {
                         if (toggled) {
                             elem.innerHTML = hallOfVideos[idx];
                         } else {
@@ -332,7 +353,7 @@
                 container.appendChild(btnHide);
 
                 var obj = new THREE.CSS3DObject(container);
-                obj.position.x = i*-1000 + videosPosition.x;
+                obj.position.x = i * -1000 + videosPosition.x;
                 obj.position.y = videosPosition.y;
                 obj.position.z = videosPosition.z;
                 obj.rotation.y = Math.PI;
@@ -425,7 +446,7 @@
             objects.character.position.y = controls.target.y - 500;
             objects.character.position.z = controls.target.z;
             objects.character.position.y += Math.sin(hoverCounter / 30) * 30;
-            hoverCounter+= delta * 0.05;
+            hoverCounter += delta * 0.05;
             hoverCounter %= 30 * Math.PI * 2;
 
             objects.character.rotation.x = camera.rotation.x;

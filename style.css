@@ -30,6 +30,20 @@ nav ul {
     width: 100%;
 }
 
+#background {
+   background-image:url('http://i0.kym-cdn.com/photos/images/newsfeed/000/328/161/576.gif');
+   /* background-size: cover; */
+   background-repeat: repeat;
+   width: 100%;
+   z-index: -1;
+   position: absolute;
+   top: 0px;
+   left: 0px;
+   height: 100%;
+   filter: blur(5px);
+   /* filter: saturate(100); */
+}
+
 nav li {
     float: left;
 }
@@ -49,6 +63,13 @@ nav li a:hover:not(.active) {
 
 nav .active {
     background-color: #4CAF50;
+}
+
+.container {
+    width: 1000px;
+}
+.container nav {
+    width: 1000px;
 }
 
 .spurdo {
