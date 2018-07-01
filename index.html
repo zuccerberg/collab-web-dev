@@ -215,6 +215,23 @@
         ];
         var videosPosition = { x: 0, y: 0, z: 2500 };
 
+        // Add 3D elements here
+        var objectList = [
+            {
+                html: `<img src="lain_gentoo.gif">`,
+                rotation: {
+                    x: Math.PI*0.25, 
+                    y: 0,
+                    z: 0,
+                },
+                position: {
+                    x: 0,
+                    y: 600,
+                    z: 0,
+                },
+            }
+        ]
+
 
         var musicplayer;
 
@@ -402,6 +419,21 @@
             var character = new THREE.CSS3DObject(characterElem);
             objects.character = character;
             scene.add(character);
+
+            // Object list ===========
+            for ( var i=0; i < objectList.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = objectList[i].html;
+                var tmpel = new THREE.CSS3DObject(div);
+                tmpel.position.x = objectList[i].position.x;
+                tmpel.position.y = objectList[i].position.y;
+                tmpel.position.z = objectList[i].position.z;
+
+                tmpel.rotation.x = objectList[i].rotation.x;
+                tmpel.rotation.y = objectList[i].rotation.y;
+                tmpel.rotation.z = objectList[i].rotation.z;
+                scene.add(tmpel);
+            }
         }
 
         var hoverCounter = 0;
