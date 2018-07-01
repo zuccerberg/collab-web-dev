@@ -248,6 +248,14 @@ I could continue, but I'm alread bored. Cya! ^_^
         </div>
     </div>
     <script>
+        // Add some youtube videos or whatever
+        function ytEmbed(url) { return `<iframe width="854" height="480" src="` + url + `"frameborder="0" allow="autoplay; encrypted-media"></iframe>`}
+        var hallOfVideos = [
+            ytEmbed("https://www.youtube.com/embed/WAxY4wfN2C0"),
+            ytEmbed("https://www.youtube.com/embed/rdVoPW9ebVI"),
+        ];
+        var videosPosition = {x: 0, y: 0, z: 2500};
+
         var musicplayer;
 
         var scene, camera, renderer;
@@ -285,6 +293,7 @@ I could continue, but I'm alread bored. Cya! ^_^
             camera.lookAt(new THREE.Vector3());
 
             createObjects();
+            createVideos();
 
             window.addEventListener("resize", onResize);
             renderer = new THREE.CSS3DRenderer();
@@ -343,6 +352,41 @@ I could continue, but I'm alread bored. Cya! ^_^
             }
         }
 
+        function createVideos() {
+            for (var i=0; i < hallOfVideos.length; i++) {
+                var container = document.createElement("div");
+
+                var elem = document.createElement("div");
+                elem.innerHTML = hallOfVideos[i];
+
+                var btnHide = document.createElement("button")
+                btnHide.innerHTML = "show/hide (hide to regain keyboard movement control)";
+                btnHide.style.width = "100%";
+                btnHide.style.height = "50px";
+                btnHide.addEventListener("click", (function(idx, elem) {
+                    var toggled = false;
+                    return function() {
+                        if (toggled) {
+                            elem.innerHTML = hallOfVideos[idx];
+                        } else {
+                            elem.childNodes[0].remove();
+                        }
+                        toggled = !toggled;
+                    }
+                })(i, elem));
+
+                container.appendChild(elem);
+                container.appendChild(btnHide);
+
+                var obj = new THREE.CSS3DObject(container);
+                obj.position.x = i*-1000 + videosPosition.x;
+                obj.position.y = videosPosition.y;
+                obj.position.z = videosPosition.z;
+                obj.rotation.y = Math.PI;
+                scene.add(obj);
+            }
+        }
+
         function createObjects() {
             var obj = new THREE.CSS3DObject(document.getElementsByClassName("container")[0]);
             scene.add(obj);
@@ -381,6 +425,7 @@ I could continue, but I'm alread bored. Cya! ^_^
             // Character ==================
             var characterElem = document.createElement("img");
             characterElem.src = "character.png";
+            characterElem.style.pointerEvents = "none";
             var character = new THREE.CSS3DObject(characterElem);
             objects.character = character;
             scene.add(character);
