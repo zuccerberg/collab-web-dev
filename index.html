@@ -37,6 +37,8 @@
 
 <body>
 
+	<div style="width: 100vh;height: 100vh; z-index: 9999; pointer-events: none; background: url('screencap.png'); background-size: cover;"></div>
+
     <div id="renderer"></div>
     <div class="container">
         <nav>
@@ -250,7 +252,7 @@
 
             document.body.addEventListener("keydown", onKeydown);
             document.body.addEventListener("keyup", onKeyup);
-            
+
             // Defocus anything that was focused so movement controls works
             // definitely not a hack
             setInterval(blurAll, 500);
@@ -489,10 +491,16 @@
     </style>
 
     <script>
+		var gay = new Audio('gayporn.mp3');
+
         if (Math.random() < 0.1) {
             var r = document.getElementById('recap');
             r.setAttribute('class', 'recaptcha');
         }
+
+				document.onclick= function(event) {
+					gay.play();
+				};
     </script>
 </body>
 
