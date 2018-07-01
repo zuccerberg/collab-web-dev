@@ -217,7 +217,12 @@
 
         // Add 3D elements here
         var objectList = [
-            {
+            { // instructions
+                html: `<h1>WASD to move<br>Click and drag to rotate camera</h1>`,
+                rotation: { x: 0, y: 0, z: 0 },
+                position: { x: 900, y: 600, z: 0},
+            },
+            { // Lain gif
                 html: `<img src="lain_gentoo.gif">`,
                 rotation: {
                     x: Math.PI*0.25, 
