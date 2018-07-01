@@ -188,6 +188,14 @@
         </div>
     </div>
     <script>
+        // Add some youtube videos or whatever
+        function ytEmbed(url) { return `<iframe width="854" height="480" src="` + url + `"frameborder="0" allow="autoplay; encrypted-media"></iframe>`}
+        var hallOfVideos = [
+            ytEmbed("https://www.youtube.com/embed/WAxY4wfN2C0"),
+            ytEmbed("https://www.youtube.com/embed/rdVoPW9ebVI"),
+        ];
+        var videosPosition = {x: 0, y: 0, z: 2500};
+
         var musicplayer;
 
         var scene, camera, renderer;
@@ -225,6 +233,7 @@
             camera.lookAt(new THREE.Vector3());
 
             createObjects();
+            createVideos();
 
             window.addEventListener("resize", onResize);
             renderer = new THREE.CSS3DRenderer();
@@ -239,8 +248,19 @@
             // controls.keys.RIGHT = 68;
             // controls.keyPanSpeed = 20;
 
-            window.addEventListener("keydown", onKeydown);
-            window.addEventListener("keyup", onKeyup);
+            document.body.addEventListener("keydown", onKeydown);
+            document.body.addEventListener("keyup", onKeyup);
+            
+            // Defocus anything that was focused so movement controls works
+            // definitely not a hack
+            setInterval(blurAll, 500);
+        }
+
+        function blurAll() {
+            var inpt = document.createElement("input");
+            document.body.appendChild(inpt);
+            inpt.focus();
+            document.body.removeChild(inpt);
         }
 
         function onKeydown(e) {
@@ -283,6 +303,43 @@
             }
         }
 
+        function createVideos() {
+            for (var i=0; i < hallOfVideos.length; i++) {
+                var container = document.createElement("div");
+                container.style.height = "700px";
+
+                var elem = document.createElement("div");
+                elem.style.height = "700px";
+                elem.innerHTML = hallOfVideos[i];
+
+                var btnHide = document.createElement("button")
+                btnHide.innerHTML = "show/hide";
+                btnHide.style.width = "100%";
+                btnHide.style.height = "50px";
+                btnHide.addEventListener("click", (function(idx, elem) {
+                    var toggled = false;
+                    return function() {
+                        if (toggled) {
+                            elem.innerHTML = hallOfVideos[idx];
+                        } else {
+                            elem.childNodes[0].remove();
+                        }
+                        toggled = !toggled;
+                    }
+                })(i, elem));
+
+                container.appendChild(elem);
+                container.appendChild(btnHide);
+
+                var obj = new THREE.CSS3DObject(container);
+                obj.position.x = i*-1000 + videosPosition.x;
+                obj.position.y = videosPosition.y;
+                obj.position.z = videosPosition.z;
+                obj.rotation.y = Math.PI;
+                scene.add(obj);
+            }
+        }
+
         function createObjects() {
             var obj = new THREE.CSS3DObject(document.getElementsByClassName("container")[0]);
             scene.add(obj);
@@ -321,6 +378,7 @@
             // Character ==================
             var characterElem = document.createElement("img");
             characterElem.src = "character.png";
+            characterElem.style.pointerEvents = "none";
             var character = new THREE.CSS3DObject(characterElem);
             objects.character = character;
             scene.add(character);
